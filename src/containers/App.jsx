@@ -17,7 +17,7 @@ const App = () => {
 
     const initialState = useInititalState(API);
 
-    return (
+    return initialState.length === 0 ? <h1>Loading...</h1> : (
         <div className="App">
             <Header />
             <Search />
