@@ -61,6 +61,7 @@
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
+    margin-left: 5px;
 }
 .login__container--register a:hover {
     text-decoration: underline;
@@ -78,3 +79,16 @@
     letter-spacing: 1px;
     margin: 10px 0px;
 }
+.button {
+    background-color: rgba(255, 255, 255, .3);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Muli', sans-serif;
+    height: 50px;
+    letter-spacing: 1px;
+    margin: 10px0;
+  }

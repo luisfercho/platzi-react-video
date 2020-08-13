@@ -9,7 +9,6 @@ const reducer = (state, action) => {
                     action.payload
                 ]
             }
-            break;
         case 'DELETE_FAVORITE':
             return {
                 ...state,
@@ -20,17 +19,35 @@ const reducer = (state, action) => {
                 ...state,
                 user: action.payload
             }
-            break;
         case 'LOGOUT_REQUEST':
             return {
                 ...state,
                 user: action.payload
             }
-            break;
         case 'REGISTER_REQUEST':
             return {
                 ...state,
                 user: action.payload
+            }
+        case 'GET_VIDEO_SOURCE':
+            return {
+                ...state,
+                playing: state.trends
+                            .find(item => item.id === Number(action.payload)) || 
+                         state.originals
+                            .find(item => item.id === Number(action.payload)) ||
+                         []
+
+            }
+        case 'SEARCH_VIDEO':
+            let data = [];
+            if(action.payload != ""){
+                data = state.trends.concat(state.originals)
+                                    .filter((item) => item.title.toLowerCase().indexOf(action.payload.toLowerCase()) > -1 )
+            }
+            return {
+                ...state,
+                search: data || []
             }
         default:
             return state;

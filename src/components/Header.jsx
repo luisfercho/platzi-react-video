@@ -13,8 +13,10 @@ import gravatar from '../utils/gravatar';
 
 import PropTypes from 'prop-types';
 
+import classNames from 'classnames';
+
 const Header = (props) => {
-    const { user } = props;
+    const { user, isLogin, isRegister } = props;
 
     const hasUser = Object.keys(user).length > 0;
 
@@ -22,8 +24,13 @@ const Header = (props) => {
         props.logoutRequest({});
     }
 
+    const headerClass = classNames('header', {
+        isLogin,
+        isRegister
+    });
+
     return (
-        <header className="header">
+        <header className={ headerClass }>
             <Link to="/" rel="canonical">
                 <img className="header__img" src={ HeaderImg } alt="Platzi Video" />
             </Link>
@@ -66,7 +73,9 @@ const mapDispatchToProps = {
 }
 
 Header.propTypes = {
-    user: PropTypes.object
+    user: PropTypes.object,
+    isLogin: PropTypes.bool,
+    isRegister: PropTypes.bool
 }
 
 export default connect( mapStateToProps, mapDispatchToProps )(Header);

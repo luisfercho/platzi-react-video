@@ -15,6 +15,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     // Filename nos pode un nombre al archivo compilado
     filename: 'bundle.js',
+    // directorio del public
+    publicPath: "/",
   },
   // Este elemento resuelve las extensiones que vamos a utilizar
   resolve: {
